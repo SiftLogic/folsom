@@ -47,7 +47,7 @@ update(#uniform{size = Size, reservoir = Reservoir, n = N} = Sample, Value) when
     ets:insert(Reservoir, {N, Value}),
     Sample#uniform{n = N + 1};
 
-update(#uniform{reservoir = Reservoir, size = Size, n = N, seed = Seed} = Sample,
+update(#uniform{reservoir = Reservoir, size = Size, n = N} = Sample,
        Value) ->
     Rnd= rand:uniform(N),
     maybe_update(Rnd, Size, Value, Reservoir),
